@@ -3,10 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Webpage</title>
+    <title>Oleksandr Savliev</title>
+    <style>
+        /* Basic CSS for layout similar to tema.ru */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header, footer { background-color: #f8f9fa; padding: 20px; text-align: center; }
+        .section { padding: 20px; margin: 20px 0; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        nav { background-color: #333; overflow: hidden; }
+        nav a { float: left; display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none; }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My First Webpage</h1>
-    <p>This is a paragraph on my webpage.</p>
+    <header>
+        <h1>Oleksandr Savliev</h1>
+    </header>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="section" id="about">About Me</div>
+    <div class="section" id="projects">My Projects</div>
+    <div class="section" id="contact">Contact Information</div>
+    <footer>
+        © 2024 Oleksandr Savliev
+    </footer>
 </body>
 </html>
