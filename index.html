@@ -1,11 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Oleksandr Savliev's Digital Hub</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savliev's Landing Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .profile-img {
+            width: 150px;
+            border-radius: 50%;
+            border: 4px solid #0077b5;
+        }
+        h1 {
+            color: #0077b5;
+        }
+        .bio {
+            margin: 20px 0;
+            font-style: italic;
+        }
+        .connect-btn {
+            background-color: #0077b5;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .connect-btn:hover {
+            background-color: #005a8c;
+        }
+        #theme-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .dark-theme {
+            background-color: #333;
+            color: #f0f0f0;
+        }
+        .dark-theme .container {
+            background: #444;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Oleksandr's Digital Universe</h1>
-    <p>Create your future, otherwise someone else will</p>
-    <a href="https://www.linkedin.com/in/savliev/">Check out my LinkedIn</a>
+    <button id="theme-toggle" onclick="toggleTheme()">🌙/☀️</button>
+    <div class="container">
+        <img src="path_to_your_profile_image.jpg" alt="Savliev's Profile" class="profile-img">
+        <h1>Welcome, Create your future, otherwise someone else will</h1>
+        <p class="bio">Seasoned digital innovation leader with over 10 years of experience in top engineering firms. Proven track record in driving multimillion-dollar growth through strategic digital solutions. 
+Known for high mental agility, strategic vision, and a hands-on approach to leadership. 
+Adept at navigating complex technological, operational, and strategic landscapes with a strong entrepreneurial drive.
+</p>
+        <a href="https://www.linkedin.com/in/savliev/" target="_blank" rel="noopener noreferrer">
+            <button class="connect-btn">Connect on LinkedIn</button>
+        </a>
+        <!-- Here you could add more sections like Projects, Skills, etc. -->
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            // You might want to save the theme preference in localStorage here
+        }
+    </script>
 </body>
 </html>
