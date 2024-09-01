@@ -3,87 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oleksandr Savliev's Landing Page</title>
+    <title>Oleksandr Savliev - Digitisation Leader, AI/ML Enthusiast
+    </title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        body, html {
             margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #F5F7FA; /* Light grayish blue */
+            height: 100%;
+            overflow: hidden;
         }
-        .container {
-            text-align: center;
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        .browser-window {
+            width: 100%;
+            height: 100%;
+            background-color: #FFFFFF; /* Pure white */
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-        .profile-img {
-            width: 150px;
+        .title-bar {
+            background-color: #3498DB; /* Flat blue */
+            color: white;
+            padding: 8px 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .window-controls {
+            display: flex;
+        }
+        .window-button {
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            border: 4px solid #0077b5;
+            margin-left: 8px;
         }
-        h1 {
-            color: #0077b5;
+        .window-button:nth-child(1) { background-color: #FC6058; }
+        .window-button:nth-child(2) { background-color: #FEC02F; }
+        .window-button:nth-child(3) { background-color: #2ACA3E; }
+        .menu-bar, .toolbar {
+            background-color: #2980B9; /* Darker flat blue */
+            padding: 8px 15px;
+            border-bottom: 1px solid #2471A3;
+            color: white;
         }
-        .bio {
+        .menu-bar span {
+            margin-right: 20px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .menu-bar span:hover {
+            color: #ECF0F1;
+        }
+        .toolbar-button {
+            display: inline-block;
+            padding: 5px 10px;
+            margin-right: 10px;
+            background-color: #3498DB;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .toolbar-button:hover {
+            background-color: #2980B9;
+        }
+        .address-bar {
+            background-color: #ECF0F1;
+            padding: 8px 15px;
+            border: 1px solid #BDC3C7;
+            margin: 10px 15px;
+            border-radius: 4px;
+        }
+        .content {
+            flex-grow: 1;
+            background-color: #FFFFFF;
+            margin: 0 15px 15px;
+            border: 1px solid #E0E0E0;
+            border-radius: 4px;
+            overflow: auto;
+        }
+        #clock {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #34495E;
+            color: #ECF0F1;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        .website-content {
+            background-color: #FFFFFF;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233498db' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            padding: 20px;
+            min-height: 100%;
+        }
+        .three-d-line {
+            height: 3px;
+            background: linear-gradient(to right, #3498DB, #2980B9);
             margin: 20px 0;
+        }
+        .content-box {
+            border: none;
+            background-color: #FFFFFF;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar {
+            background-color: #ECF0F1;
+        }
+        .visitor-count {
+            background-color: #2980B9;
+            color: #FFFFFF;
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        marquee {
+            background-color: #F5F7FA;
+            padding: 10px;
+            color: #2980B9;
             font-style: italic;
         }
-        .connect-btn {
-            background-color: #0077b5;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        .status-bar {
+            background-color: #34495E;
+            padding: 8px 15px;
+            border-top: 1px solid #2C3E50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #ECF0F1;
         }
-        .connect-btn:hover {
-            background-color: #005a8c;
+        html {
+            scroll-behavior: smooth;
         }
-        #theme-toggle {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            cursor: pointer;
+        a {
+            color: #3498DB;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
-        .dark-theme {
-            background-color: #333;
-            color: #f0f0f0;
+        a:hover {
+            color: #2980B9;
         }
-        .dark-theme .container {
-            background: #444;
+        h1, h2 {
+            color: #2C3E50;
         }
     </style>
 </head>
 <body>
-    <button id="theme-toggle" onclick="toggleTheme()">🌙/☀️</button>
-    <div class="container">
-        <img src="Savliev_Profile_Picture_.jpg" alt="Savliev's Profile" class="profile-img">
-        <h1>Create your future, otherwise someone else will</h1>
-        <p class="bio">Seasoned digital innovation leader with over 10 years of experience in top engineering firms. 
-            Proven track record in driving multimillion-dollar growth through strategic digital solutions. 
-            Known for high mental agility, strategic vision, and a hands-on approach to leadership. 
-            Adept at navigating complex technological, operational, and strategic landscapes with a strong entrepreneurial drive.
-</p>
-        <a href="https://www.linkedin.com/in/savliev/" target="_blank" rel="noopener noreferrer">
-            <button class="connect-btn">Connect on LinkedIn</button>
-        </a>
-        <!-- Here you could add more sections like Projects, Skills, etc. -->
+    <div class="browser-window">
+        <div class="title-bar">
+            <span>Oleksandr Savliev - Digitisation Leader, AI/ML Enthusiast</span>
+            <div class="window-controls">
+                <div class="window-button"></div>
+                <div class="window-button"></div>
+                <div class="window-button"></div>
+            </div>
+        </div>
+        <div class="menu-bar">
+            <span>File</span><span>Edit</span><span>View</span><span>Go</span><span>Bookmarks</span><span>Options</span><span>Directory</span><span>Window</span><span>Help</span>
+        </div>
+        <div class="toolbar">
+            <span class="toolbar-button">Back</span>
+            <span class="toolbar-button">Forward</span>
+            <span class="toolbar-button">Home</span>
+            <span class="toolbar-button">Reload</span>
+            <span class="toolbar-button">Images</span>
+            <span class="toolbar-button">Open</span>
+            <span class="toolbar-button">Print</span>
+            <span class="toolbar-button">Find</span>
+            <span class="toolbar-button">Stop</span>
+        </div>
+        <div class="address-bar">
+            https://www.savliev.com/
+        </div>
+        <div class="content">
+            <div class="website-content">
+                <div class="content-box" id="home">
+                    <h1>Oleksandr Savliev - Digitisation Leader, AI/ML Enthusiast</h1>
+                    <div class="three-d-line"></div>
+                    <h2>Things I am interested in</h2>
+                </div>
+                
+                <table width="100%" cellspacing="0" cellpadding="5">
+                    <tr>
+                        <td width="100%" valign="top">
+                            <div class="content-box">
+                                <img src="Savliev_Profile_Picture_.jpg" alt="Oleksandr Savliev" align="left" hspace="20" width="160" height="160" style="border-radius: 50%; border: 3px solid #3498DB;">
+                                <p>You are visitor number <span class="visitor-count" id="visitorCount">000001</span></p>
+                                <p><i>Website last updated: September, 2024</i></p>
+                                <h2 id="about">About Me</h2>
+                                <p>I am Oleksandr Savliev, a seasoned Digitisation Expert with over 10 years of experience in Digital Transformation. My passion lies in leveraging technology to drive business innovation and growth.</p>
+                                <h2 id="expertise">Areas of Expertise</h2>
+                                <ul>
+                                    <li>Digital Transformation</li>
+                                    <li>AI/ML Implementation</li>
+                                    <li>Business Process Optimization</li>
+                                    <li>Data Analytics</li>
+                                    <li>Change Management</li>
+                                </ul>
+                                <h2 id="projects">Notable Projects</h2>
+                                <ol>
+                                    <li>Led digital transformation initiatives resulting in 30% efficiency improvement for a Fortune 500 company</li>
+                                    <li>Implemented AI-driven customer service solutions, reducing response times by 50%</li>
+                                    <li>Developed and executed a data analytics strategy that increased revenue by 25% for a retail client</li>
+                                </ol>
+                                <h2 id="contact">Connect here:</h2>
+                                <div class="social-buttons">
+                                    <a href="https://twitter.com/OSavliev" class="social-button">
+                                        <i class="fab fa-twitter"></i> X
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/savliev/" class="social-button linkedin-button">
+                                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                                    </a>
+                                </div>
+                                <style>
+                                    .social-buttons {
+                                        display: flex;
+                                        gap: 10px;
+                                        margin-top: 15px;
+                                    }
+                                    .social-button {
+                                        display: inline-flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        padding: 10px 15px;
+                                        border-radius: 5px;
+                                        text-decoration: none;
+                                        font-weight: bold;
+                                        transition: all 0.3s ease;
+                                        background-color: #3498DB;
+                                        color: white;
+                                        width: 80px;
+                                        height: 25px;
+                                    }
+                                    .social-button:hover {
+                                        transform: translateY(-3px);
+                                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                                        background-color: #2980B9;
+                                    }
+                                    .social-button i {
+                                        margin-right: 8px;
+                                    }
+                                </style>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+                <div class="three-d-line"></div>
+                <marquee>Thank you for visiting! Connect and follow me on LinkedIn and X.</marquee>
+                <div class="three-d-line"></div>
+                
+                <div align="center">
+                    <img src="https://example.com/digitisation-expert.gif" alt="Digitisation Expert at Work" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                </div>
+            </div>
+        </div>
+        <div class="status-bar">
+            <span>Transforming the analog world into digital realities, one project at a time.</span>
+            <span id="clock"></span>
+        </div>
     </div>
 
     <script>
-        function toggleTheme() {
-            document.body.classList.toggle('dark-theme');
-            // You might want to save the theme preference in localStorage here
+        function updateClock() {
+            const now = new Date();
+            const options = {
+                timeZone: 'Europe/Berlin',
+                hour12: false,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            const timeString = now.toLocaleTimeString('en-US', options);
+            document.getElementById('clock').textContent = timeString;
         }
+
+        function incrementVisitorCount() {
+            const visitorCountElement = document.getElementById('visitorCount');
+            let count = parseInt(visitorCountElement.textContent);
+            count++;
+            visitorCountElement.textContent = count.toString().padStart(6, '0');
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+        incrementVisitorCount();
     </script>
 </body>
 </html>
