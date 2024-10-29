@@ -3,160 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oleksandr Savliev - Digitisation Leader, AI/ML Enthusiast
-    </title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            background-color: #F5F7FA; /* Light grayish blue */
-            height: 100%;
-            overflow: hidden;
-        }
-        .browser-window {
-            width: 100%;
-            height: 100%;
-            background-color: #FFFFFF; /* Pure white */
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .title-bar {
-            background-color: #3498DB; /* Flat blue */
-            color: white;
-            padding: 8px 15px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .window-controls {
-            display: flex;
-        }
-        .window-button {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin-left: 8px;
-        }
-        .window-button:nth-child(1) { background-color: #FC6058; }
-        .window-button:nth-child(2) { background-color: #FEC02F; }
-        .window-button:nth-child(3) { background-color: #2ACA3E; }
-        .menu-bar, .toolbar {
-            background-color: #2980B9; /* Darker flat blue */
-            padding: 8px 15px;
-            border-bottom: 1px solid #2471A3;
-            color: white;
-        }
-        .menu-bar span {
-            margin-right: 20px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-        .menu-bar span:hover {
-            color: #ECF0F1;
-        }
-        .toolbar-button {
-            display: inline-block;
-            padding: 5px 10px;
-            margin-right: 10px;
-            background-color: #3498DB;
-            border: none;
-            border-radius: 4px;
-            font-size: 14px;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .toolbar-button:hover {
-            background-color: #2980B9;
-        }
-        .address-bar {
-            background-color: #ECF0F1;
-            padding: 8px 15px;
-            border: 1px solid #BDC3C7;
-            margin: 10px 15px;
-            border-radius: 4px;
-        }
-        .content {
-            flex-grow: 1;
-            background-color: #FFFFFF;
-            margin: 0 15px 15px;
-            border: 1px solid #E0E0E0;
-            border-radius: 4px;
-            overflow: auto;
-        }
-        #clock {
-            font-family: 'Roboto Mono', monospace;
-            background-color: #34495E;
-            color: #ECF0F1;
-            padding: 5px 10px;
-            border-radius: 4px;
-        }
-        .website-content {
-            background-color: #FFFFFF;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233498db' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-            padding: 20px;
-            min-height: 100%;
-        }
-        .three-d-line {
-            height: 3px;
-            background: linear-gradient(to right, #3498DB, #2980B9);
-            margin: 20px 0;
-        }
-        .content-box {
-            border: none;
-            background-color: #FFFFFF;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .sidebar {
-            background-color: #ECF0F1;
-        }
-        .visitor-count {
-            background-color: #2980B9;
-            color: #FFFFFF;
-            display: inline-block;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-weight: bold;
-        }
-        marquee {
-            background-color: #F5F7FA;
-            padding: 10px;
-            color: #2980B9;
-            font-style: italic;
-        }
-        .status-bar {
-            background-color: #34495E;
-            padding: 8px 15px;
-            border-top: 1px solid #2C3E50;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #ECF0F1;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        a {
-            color: #3498DB;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        a:hover {
-            color: #2980B9;
-        }
-        h1, h2 {
-            color: #2C3E50;
-        }
-    </style>
+    <meta name="description" content="Oleksandr Savliev - Digitisation Leader, AI/ML Enthusiast">
+    <title>Oleksandr Savliev - Digitisation Leader, AI/ML Enthusiast</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="browser-window">
+    <header class="browser-window">
         <div class="title-bar">
             <span>Oleksandr Savliev - Digitisation Leader, AI/ML Enthusiast</span>
             <div class="window-controls">
@@ -165,9 +17,9 @@
                 <div class="window-button"></div>
             </div>
         </div>
-        <div class="menu-bar">
+        <nav class="menu-bar">
             <span>File</span><span>Edit</span><span>View</span><span>Go</span><span>Bookmarks</span><span>Options</span><span>Directory</span><span>Window</span><span>Help</span>
-        </div>
+        </nav>
         <div class="toolbar">
             <span class="toolbar-button">Back</span>
             <span class="toolbar-button">Forward</span>
@@ -182,14 +34,15 @@
         <div class="address-bar">
             https://www.savliev.com/
         </div>
-        <div class="content">
-            <div class="website-content">
-                <div class="content-box" id="home">
-                    <h1>Oleksandr Savliev - Digitisation Leader, AI/ML Enthusiast</h1>
-                    <div class="three-d-line"></div>
-                    <h2>Things I am interested in</h2>
-                </div>
-                
+    </header>
+    <main class="content">
+        <div class="website-content">
+            <section class="content-box" id="home">
+                <h1>Oleksandr Savliev - Digitisation Leader, AI/ML Enthusiast</h1>
+                <div class="three-d-line"></div>
+                <h2>Things I am interested in</h2>
+            </section>
+            <section>
                 <table width="100%" cellspacing="0" cellpadding="5">
                     <tr>
                         <td width="100%" valign="top">
@@ -198,7 +51,7 @@
                                 <p>You are visitor number <span class="visitor-count" id="visitorCount">000001</span></p>
                                 <p><i>Website last updated: September, 2024</i></p>
                                 <h2 id="about">About Me</h2>
-                                <p>I am Oleksandr Savliev, a seasoned Digitisation Expert with over 10 years of experience in Digital Transformation. My passion lies in leveraging technology to drive business innovation and growth.</p>
+                                <p>I am Oleksandr Savliev, a seasoned Digitisation Expert with over 10 years of experience in Digital Transformation. My passion lies in leveraging technology to drive business innovation and growth. Currently, I am leading digitisation efforts at a major financial institution, focusing on AI/ML solutions and process automation.</p>
                                 <h2 id="expertise">Areas of Expertise</h2>
                                 <ul>
                                     <li>Digital Transformation</li>
@@ -206,12 +59,15 @@
                                     <li>Business Process Optimization</li>
                                     <li>Data Analytics</li>
                                     <li>Change Management</li>
+                                    <li>Financial Services</li>
+                                    <li>Project Management</li>
                                 </ul>
                                 <h2 id="projects">Notable Projects</h2>
                                 <ol>
                                     <li>Led digital transformation initiatives resulting in 30% efficiency improvement for a Fortune 500 company</li>
                                     <li>Implemented AI-driven customer service solutions, reducing response times by 50%</li>
                                     <li>Developed and executed a data analytics strategy that increased revenue by 25% for a retail client</li>
+                                    <li>Managed a cross-functional team to deploy a machine learning model that improved fraud detection by 40%</li>
                                 </ol>
                                 <h2 id="contact">Connect here:</h2>
                                 <div class="social-buttons">
@@ -222,79 +78,23 @@
                                         <i class="fab fa-linkedin-in"></i> LinkedIn
                                     </a>
                                 </div>
-                                <style>
-                                    .social-buttons {
-                                        display: flex;
-                                        gap: 10px;
-                                        margin-top: 15px;
-                                    }
-                                    .social-button {
-                                        display: inline-flex;
-                                        align-items: center;
-                                        justify-content: center;
-                                        padding: 10px 15px;
-                                        border-radius: 5px;
-                                        text-decoration: none;
-                                        font-weight: bold;
-                                        transition: all 0.3s ease;
-                                        background-color: #3498DB;
-                                        color: white;
-                                        width: 80px;
-                                        height: 25px;
-                                    }
-                                    .social-button:hover {
-                                        transform: translateY(-3px);
-                                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                                        background-color: #2980B9;
-                                    }
-                                    .social-button i {
-                                        margin-right: 8px;
-                                    }
-                                </style>
                             </div>
                         </td>
                     </tr>
                 </table>
-                
-                <div class="three-d-line"></div>
-                <marquee>Thank you for visiting! Connect and follow me on LinkedIn and X.</marquee>
-                <div class="three-d-line"></div>
-                
-                <div align="center">
-                    <img src="https://example.com/digitisation-expert.gif" alt="Digitisation Expert at Work" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                </div>
+            </section>
+            <div class="three-d-line"></div>
+            <marquee>Thank you for visiting! Connect and follow me on LinkedIn and X.</marquee>
+            <div class="three-d-line"></div>
+            <div align="center">
+                <img src="https://example.com/digitisation-expert.gif" alt="Digitisation Expert at Work" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
             </div>
         </div>
-        <div class="status-bar">
-            <span>Transforming the analog world into digital realities, one project at a time.</span>
-            <span id="clock"></span>
-        </div>
-    </div>
-
-    <script>
-        function updateClock() {
-            const now = new Date();
-            const options = {
-                timeZone: 'Europe/Berlin',
-                hour12: false,
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
-            };
-            const timeString = now.toLocaleTimeString('en-US', options);
-            document.getElementById('clock').textContent = timeString;
-        }
-
-        function incrementVisitorCount() {
-            const visitorCountElement = document.getElementById('visitorCount');
-            let count = parseInt(visitorCountElement.textContent);
-            count++;
-            visitorCountElement.textContent = count.toString().padStart(6, '0');
-        }
-
-        setInterval(updateClock, 1000);
-        updateClock();
-        incrementVisitorCount();
-    </script>
+    </main>
+    <footer class="status-bar">
+        <span>Transforming the analog world into digital realities, one project at a time.</span>
+        <span id="clock"></span>
+    </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>
